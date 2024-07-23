@@ -1,0 +1,50 @@
+---
+title: "Visualización del dataset"
+author: "Karen"
+format: 
+    html:
+    code-fold: true
+    theme: cosmo
+---
+
+# Visualización de datos en Seaborn
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Cargar el dataset tips
+titanic = sns.load_dataset("titanic")
+```
+
+```{python}
+# Gráfico categórico 
+#| label: Bar plot 
+#| fig-cap: "Distribución de la edad por clase de pasajero"
+
+plt.figure(figsize=(15, 10))
+sns.barplot(x="class", y="age", data=titanic)
+plt.title("Edad media de los pasajeros por clase")
+plt.xlabel("Clase de pasajero")
+plt.ylabel("Edad media")
+plt.show()
+```
+
+```{python}
+#| label: fig-scatterplot
+#| fig-cap: "Relación de edad y tarifa Titanic por clase "
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x="age", y="fare", hue="class", data=titanic)
+plt.title("Relación entre edad y tarifa por clase")
+plt.show()
+```
+
+```{python}
+#| label: fig-histogram
+#| fig-cap: "Distribución de las propinas"
+
+plt.figure(figsize=(10, 6))
+sns.histplot(data=titanic, x="age", kde=True)
+plt.title("Distribución de edad")
+plt.show()
+```
