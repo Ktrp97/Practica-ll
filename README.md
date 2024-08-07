@@ -1,2 +1,2 @@
-# Practica-ll
+# Practicas 
 Taller de programación
